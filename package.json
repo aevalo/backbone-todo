@@ -2,9 +2,12 @@
   "name": "backbone-todo",
   "version": "0.1.0",
   "description": "Todo example for Backbone.js",
-  "main": "index.js",
+  "main": "todo.bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --config webpack.development.config.js --color -d --progress -p --watch",
+    "build": "npm run build:prod",
+    "build:local": "webpack --config webpack.config.js --progress --profile --color --display-error-details --display-cached --bail",
+    "build:prod": "webpack --config webpack.config.js --profile --color=false --display-error-details --display-cached --bail"
   },
   "keywords": [
     "Todo",
@@ -14,11 +17,23 @@
   "author": "Arttu Valo",
   "license": "MIT",
   "devDependencies": {
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.10",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.20.2",
+    "ts-loader": "^4.0.0",
     "typescript": "^2.7.2",
-    "webpack": "^4.0.1"
+    "uglify-js-plugin": "0.0.6",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-merge": "^4.1.2"
   },
   "optionalDependencies": {
-    "fsevents": "^1.1.3"
+    "fsevents": "1.1.3"
   },
   "dependencies": {
     "@types/backbone": "^1.3.42",
